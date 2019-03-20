@@ -1,0 +1,30 @@
+{
+  "name": "filmboard",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development gulp --gulpfile tasks",
+    "build": "NODE_ENV=production gulp build --gulpfile tasks",
+    "clean": "gulp clean --gulpfile tasks"
+  },
+  "author": "Max Isom <codetheweb@icloud.com> (https://maxisom.me)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv-webpack": "^1.7.0",
+    "gulp-rm": "^2.0.0",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "gulpjs/gulp",
+    "gulp-sass": "^4.0.2",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "node-sass": "^4.11.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.6.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-hot-middleware": "^2.24.3"
+  }
+}

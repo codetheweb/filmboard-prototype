@@ -1,0 +1,95 @@
+@import 'fonts';
+@import 'mixins';
+@import 'variables';
+
+html, body {
+  padding: 0;
+  margin: 0;
+
+  background-color: $background;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Soin Sans Neue';
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  flex-direction: row;
+}
+
+a.active {
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 100vh;
+  position: static;
+  padding-left: 2vw;
+
+  img {
+    max-width: 15vw;
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0 5vw;
+}
+
+.content {
+  margin: 0;
+
+  .details {
+    display: flex;
+    flex-direction: row;
+
+    & > div {
+      // Make childern equal width
+      flex-grow: 1;
+      flex-basis: 0;
+
+      margin: 0 2.5vw;
+    }
+
+    .poster {
+      & > img { // Poster image
+        width: 20vw;
+      }
+
+      .ratings {
+        display: flex;
+        flex-direction: row;
+        height: 5vh;
+
+        .rating {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          flex-basis: 0;
+        }
+      }
+    }
+  }
+
+  .description {
+    .trailer {
+      & > img {
+        width: 25vw;
+      }
+    }
+  }
+}
