@@ -55,7 +55,7 @@ function browserSyncReload(done) {
 // Sass
 gulp.task('sass', () => {
   return gulp.src('./site/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({includePaths: ['node_modules']}).on('error', sass.logError))
     .pipe(browser.stream())
     .pipe(gulp.dest('./dist'));
 });

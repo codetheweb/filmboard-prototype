@@ -17,8 +17,7 @@ const config = {
   context: path.resolve(__dirname, '../site'),
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HardSource(),
-    new Dotenv()
+    new HardSource()
   ],
   node: {
     fs: 'empty',
