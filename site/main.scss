@@ -7,7 +7,7 @@ html, body {
   padding: 0;
   margin: 0;
 
-  background-color: $background;
+  background-color: $background-light;
   width: 100%;
   min-height: 100vh;
 }
@@ -19,6 +19,21 @@ body {
 
   display: grid;
   grid-template-columns: 20% 80%;
+}
+
+.dark {
+  background-color: $background-dark;
+  color: white;
+
+  a {
+    color: white;
+    transition: all;
+    transition-duration: 0.2s;
+
+    &:hover {
+      color: black;
+    }
+  }
 }
 
 a {
@@ -47,16 +62,16 @@ nav {
   flex-direction: column;
   position: static;
   padding-top: 4em;
+  margin-left: 3em;
 
   & > img { // Logo
-    align-self: center;
     width: 80%;
+    padding-left: 10px;
   }
 
   .navbar-links {
     display: flex;
     flex-direction: column;
-    margin-left: 2em;
     margin-top: 6em;
     font-size: 150%;
     line-height: 2em;
@@ -64,7 +79,7 @@ nav {
 
     & > a {
       font-weight: 300;
-      padding-left: 0.2em;
+      padding-left: 10px;
     }
   }
 }
@@ -74,7 +89,8 @@ nav {
   grid-auto-columns: 1fr;
   grid-template-rows: 0.5fr 1fr;
   grid-column-gap: 5em;
-  margin: 0 5%;
+  margin: auto 5%;
+  max-width: 1500px;
 }
 
 .content {
@@ -101,7 +117,7 @@ nav {
     }
 
     h1 {
-      font-weight: 400;
+      font-weight: 500;
       font-size: 3em;
     }
   }
@@ -124,7 +140,7 @@ nav {
     .ratings {
       display: flex;
       flex-direction: row;
-      width: 50%;
+      width: 80%;
       align-items: center;
       padding: 0 auto;
       justify-content: space-around;
@@ -189,7 +205,7 @@ nav {
         align-items: center;
         cursor: pointer;
 
-        transform: translateZ(20px);
+        transform: translateZ(2em);
 
         .triangle {
           border-left: 2em solid $yellow;
@@ -257,6 +273,19 @@ nav {
   a {
     font-weight: bold;
   }
+}
+
+.toggle-theme {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  width: 2em;
+  height: 2em;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  background-color: $yellow;
+  cursor: pointer;
 }
 
 .trailer-container {

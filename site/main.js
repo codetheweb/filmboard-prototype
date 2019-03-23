@@ -33,6 +33,15 @@ $(document).ready(() => {
         $('.trailer-container').hide();
       })
     }
-  })
+  });
 
+  $('.toggle-theme').click(event => {
+    $('body').toggleClass('dark');
+
+    if ($('body').hasClass('dark')) {
+      $('nav > img').attr('src', 'assets/logo-white.svg');
+    } else {
+      $('nav > img').attr('src', 'assets/logo-black.svg');
+    }
+  })
 });

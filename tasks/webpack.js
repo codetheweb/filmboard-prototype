@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HardSource = require('hard-source-webpack-plugin');
 
+const env = process.env.NODE_ENV;
+
 const config = {
   entry: {
     main: [
@@ -24,7 +26,7 @@ const config = {
     net: 'mock',
     tls: 'empty'
   },
-  mode: (process.env.NODE_ENV === 'development' ? 'development' : 'production')
+  mode: env || 'development'
 };
 
 module.exports = {
