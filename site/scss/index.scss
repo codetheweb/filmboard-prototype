@@ -1,103 +1,19 @@
-@import 'sassy-normalize/normalize';
-@import 'fonts';
 @import 'mixins';
 @import 'variables';
-
-html, body {
-  padding: 0;
-  margin: 0;
-
-  background-color: $background-light;
-  width: 100%;
-  min-height: 100vh;
-}
-
-body {
-  font-family: 'Soin Sans Neue';
-  -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-  display: grid;
-  grid-template-columns: 20% 80%;
-}
-
-.dark {
-  background-color: $background-dark;
-  color: white;
-
-  a {
-    color: white;
-    transition: all;
-    transition-duration: 0.2s;
-
-    &:hover {
-      color: black;
-    }
-  }
-}
-
-a {
-  color: black;
-  text-decoration: none;
-
-  background: linear-gradient(
-                to bottom, $yellow 0%,
-                $yellow 100%);
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  background-size: 0 0;
-  transition: background-size 0.2s;
-
-  &.active {
-    font-weight: bold !important;
-  }
-
-  &:hover {
-    background-size: 4px 50px;
-  }
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  position: static;
-  padding-top: 4em;
-  margin-left: 3em;
-
-  & > img { // Logo
-    width: 80%;
-    padding-left: 10px;
-  }
-
-  .navbar-links {
-    display: flex;
-    flex-direction: column;
-    margin-top: 6em;
-    font-size: 150%;
-    line-height: 2em;
-    width: 50%;
-
-    & > a {
-      font-weight: 300;
-      padding-left: 10px;
-    }
-  }
-}
 
 .content {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 0.5fr 1fr;
   grid-column-gap: 5em;
-  margin: auto 5%;
-  max-width: 1500px;
+  grid-row-gap: 1em;
+  grid-template:
+    'header header header'
+    'poster trailer showtimes';
 }
 
 .content {
   .header-nowshowing {
-    margin-bottom: 1.5em;
-    grid-column: 1 / 4;
-    grid-row: 1;
+    grid-area: header;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -127,8 +43,7 @@ nav {
     align-items: center;
     flex-direction: column;
     flex-grow: 0;
-    grid-column: 1;
-    grid-row: 2;
+    grid-template: poster;
 
     & > img { // Poster image
       width: 100%;
@@ -151,6 +66,7 @@ nav {
         display: flex;
         flex-direction: row;
         letter-spacing: 2px;
+        margin-right: 0.5em;
 
         & > * {
           font-weight: bold;
@@ -166,7 +82,6 @@ nav {
     .people {
       text-align: center;
       font-size: 70%;
-      width: 50%;
 
       & > * {
         margin: 0.5em 0;
@@ -177,6 +92,7 @@ nav {
   .description {
     display: flex;
     flex-direction: column;
+    grid-template: trailer;
 
     .trailer {
       position: relative;
@@ -221,7 +137,7 @@ nav {
 
     .summery {
       margin-top: 1.5em;
-      font-size: 150%;
+      font-size: 110%;
       line-height: 1.3em;
     }
   }
@@ -230,6 +146,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-template: showtimes;
 
     table {
       font-size: 150%;
@@ -265,29 +182,6 @@ nav {
   }
 }
 
-.credits {
-  position: absolute;
-  bottom: 1em;
-  right: 1em;
-
-  a {
-    font-weight: bold;
-  }
-}
-
-.toggle-theme {
-  position: absolute;
-  bottom: 1em;
-  left: 1em;
-  width: 2em;
-  height: 2em;
-  outline: none;
-  border-radius: 50%;
-  border: none;
-  background-color: $yellow;
-  cursor: pointer;
-}
-
 .trailer-container {
   display: none;
   background-color: rgba(0, 0, 0, 0.9);
@@ -295,6 +189,8 @@ nav {
   width: 100vw;
   height: 100vh;
   z-index: 5;
+  left: 0;
+  top: 0;
 
   #trailer {
     position: fixed;
@@ -303,5 +199,38 @@ nav {
     left: 10vw;
     top: 10vh;
     z-index: 10;
+  }
+}
+
+@media (max-width: 1100px) {
+  .content {
+    grid-template-areas:
+      'header'
+      'poster'
+      'trailer'
+      'showtimes';
+    margin-top: 3em;
+    grid-row-gap: 4em;
+    grid-template-columns: 70%;
+    justify-content: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .poster {
+      margin-top: -3em;
+
+      & > img {
+        width: 80%;
+      }
+
+      .people {
+        display: none;
+      }
+    }
+
+    .header-nowshowing {
+      font-size: 0.8em;
+    }
   }
 }

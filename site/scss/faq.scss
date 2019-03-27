@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'mixins';
+
+h1 {
+  text-align: center;
+}
+
+.faq {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+  .qa {
+    max-width: 30em;
+    line-height: 1.2em;
+    margin-right: 5em;
+  }
+}
+
+@media (max-width: 1100px) {
+  .qa {
+    margin-right: 0 !important;
+  }
+}

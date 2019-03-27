@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Film Board</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    {% block style %} {% endblock %}
+    <script src="bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+
+  	<nav>
+      <img src="assets/logo-black.svg" alt="Logo" />
+
+      <div class="navbar-links">
+        <a href="/" class="active">Home</a>
+        <a href="/">Group Sales</a>
+        <a href="/">About Us</a>
+        <a href="/">Advertise</a>
+        <a href="/">Location</a>
+        <a href="/">Services</a>
+        <a href="/">Contact</a>
+        <a href="/">Donate</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+
+      <div class="hamburger-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    <section class="content">
+      {% block content %} {% endblock %}
+    </section>
+
+    <footer>
+      <button class="toggle-theme"></button>
+      <div class="credits">
+        Site made by <a href="https://maxisom.me">Max Isom</a>.
+      </div>
+    </footer>
+  </body>
+</html>

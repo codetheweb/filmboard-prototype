@@ -1,0 +1,88 @@
+{% extends "layout.nunjucks" %}
+
+{% block style %}
+  <link rel="stylesheet" href="css/faq.css" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+  <h1>FAQ</h1>
+
+  <section class="faq">
+    <div class="qa">
+      <h3 data-text="What is Film Board?">What is Film Board?</h3>
+      <p>
+        The Michigan Tech Film Board is the student group behind the movies that are shown in Fisher 135. We present movies every weekend during Fall and Spring semester (except breaks). We have over 30 members who choose what movies to show, sell tickets and concessions, and even project them.
+      </p>
+      <p>
+        Film Board is a theater grade second-run theater complete with a 40 foot screen, high quality projector, and a brand new 7.1 dolby surround sound system. This system is completely paid for and run by Film Board. A second-run theater plays movies that are out of theaters but not yet on DVD/Blu-Ray. Some movies that we have showed in the last few years include Thor: Ragnarok, Baby Driver, Star Wars 7, Doctor Strange, Fantastic Beasts and Where to Find Them, Inside Out, Rise of the Planet of the Apes, and many many more!
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="Do I need a Michigan Tech ID to see a movie?">Do I need a Michigan Tech ID to see a movie?</h3>
+      <p>
+        No! Whether you are student, faculty, community member, or a passing visitor Film Board welcomes everyone to our shows!
+      </p>
+      <p>
+        For our 3D shows, we recommend a Tech ID to check out glasses, but it's not an absolute requirement (another form of ID or a credit card will work).
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="What kind of equipment does the Film Board have?">What kind of equipment does the Film Board have?</h3>
+      <p>
+        Film Board has a Barco DP-2000 digital cinema projector fed by a Dolby cinema server and show player at the heart of its system, as well as a 35mm Simplex projector with a Strong Lume-X 2000 watt lamphouse for viewing legacy film prints. A Dolby Digital sound processor pumps 7.1 channels of surround sound to the speakers installed in Fisher 135.
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="What types of accessibility options does Film Board provide?">What types of accessibility options does Film Board provide?</h3>
+      <p>
+        Film Board ties into the T-coil system in Fisher 135 with our cinema sound processor in order to provide accessibility to our films for the hearing impaired.
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="How are movies chosen?">How are movies chosen?</h3>
+      <p>
+        Film Board votes on movies roughly 4-5 times a year. We vote on about 4 movies each time we vote, voting from a list of movies from a variety of distributors. These distributors (mainly Swank and Criterion) have all the lastest movies that are out of theaters but not yet out on DVD, that's why we are called a second run theater. Film Board typically does a great job bringing movies to campus that we think the Tech community will enjoy!
+      </p>
+      <p>
+        Have a suggestion? Use our Contact Form to let us know! We take every suggestion into account when voting on movies!
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="How do I join the Film Board?">How do I join the Film Board?</h3>
+      <p>
+        Simple! Come to two of our weekly meetings and you'll be in! We hold meetings in Fisher 129 at 6pm every Tuesday. At your second meeting, you'll fill out a little questionnaire and introduce yourself to the rest of the Film Board members. After that you will be a Film Board member!
+      </p>
+      <p>
+        As a Film Board member, you can get 4 friends in for free each weekend to watch the movie with you and free popcorn. You pop the popcorn, sell the concessions and tickets, you can even project the weekend shows!
+      </p>
+      <p>
+        Still have questions about joining? Email our Vice President and they will fill you in! See our Officers page for contact information.
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="I want to work with Film Board, what do I do?">I want to work with Film Board, what do I do?</h3>
+      <p>
+        Film Board has several different services we provide! We can advertise, show a movie, or provide concessions for your group.
+      </p>
+      <p>
+        Film Board is always happy to help our fellow Student organizations and community groups! We can show a movie for your event or provide concessions. We have shown movies for such organizations as GSG, ROTC, and even campus departments like CDI or Public Safety. If you are interested in showing a movie with us please see the special event shows page under our services menu.
+      </p>
+      <p>
+        If you would like to advertise before our shows, please see our advertising page under the services menu!
+      </p>
+    </div>
+
+    <div class="qa">
+      <h3 data-text="My question wasn't answered in your FAQ, what do I do?">My question wasn't answered in your FAQ, what do I do?</h3>
+      <p>
+        Feel free to use our Contact Form to ask any questions not covered in this FAQ!
+      </p>
+    </div>
+  </section>
+{% endblock %}

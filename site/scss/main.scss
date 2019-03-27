@@ -1,0 +1,244 @@
+// Styles common to all pages
+@import 'sassy-normalize/normalize';
+@import 'fonts';
+@import 'mixins';
+@import 'variables';
+
+html, body {
+  padding: 0;
+  margin: 0;
+
+  background-color: $background-light;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Soin Sans Neue';
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  display: grid;
+  grid-template-areas:
+    'nav content content content content'
+    'footer footer footer footer footer';
+  grid-template-rows: 1fr 3em;
+  grid-template-columns: 20em 1fr;
+}
+
+.dark {
+  background-color: $background-dark;
+  color: white;
+
+  a {
+    color: white;
+    transition: all;
+    transition-duration: 0.2s;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+
+  background: linear-gradient(
+                to bottom, $yellow 0%,
+                $yellow 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 0 0;
+  transition: background-size 0.2s;
+
+  &.active {
+    font-weight: bold !important;
+  }
+
+  &:hover {
+    background-size: 4px 50px;
+  }
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4em;
+  margin-left: 3em;
+
+  & > img { // Logo
+    padding-left: 10px;
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2em;
+    font-size: 150%;
+    line-height: 2em;
+
+    & > a {
+      font-weight: 300;
+      padding-left: 10px;
+    }
+  }
+}
+
+.content {
+  margin: 12em 5em auto 5em;
+  justify-self: center;
+  max-width: 1500px;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+
+  .credits {
+    a {
+      font-weight: bold;
+    }
+  }
+
+  .toggle-theme {
+    width: 2em;
+    height: 2em;
+    outline: none;
+    border-radius: 50%;
+    border: none;
+    background-color: $yellow;
+    cursor: pointer;
+  }
+}
+
+.dark.nav-open nav {
+  background-color: $background-dark;
+}
+
+@media (max-width: 1100px) {
+  body {
+    grid-template-areas:
+      'nav'
+      'content'
+      'footer';
+    grid-template-rows: auto 1fr 3em;
+    grid-template-columns: none;
+  }
+
+  nav {
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    margin-top: 1em;
+
+    .hamburger-menu {
+      display: block;
+      cursor: pointer;
+      z-index: 12;
+
+      & > .line {
+        width: 2em;
+        height: 0.2em;
+        margin-bottom: 0.3em;
+        background-color: $yellow;
+        border-radius: $border-radius-img;
+
+        transition-duration: 0.3s;
+        transition-property: all;
+      }
+    }
+
+    img {
+      height: 4em;
+      width: auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-links {
+      display: none;
+    }
+  }
+
+  .nav-open {
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      z-index: 11;
+      background-color: $background-light;
+      padding: 0;
+
+      display: grid;
+      grid-template-rows: 6em 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'logo hamburger'
+        'links links';
+      justify-content: flex-start;
+
+      img {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        width: auto;
+        grid-area: logo;
+      }
+
+      .hamburger-menu {
+        margin: auto 1em auto auto;
+        grid-area: hamburger;
+
+        .line:nth-child(1) {
+          transform: rotateZ(45deg);
+          margin-bottom: -0.2em;
+        }
+
+        .line:nth-child(2) {
+          display: none;
+        }
+
+        .line:nth-child(3) {
+          transform: rotateZ(-45deg);
+        }
+      }
+
+      .navbar-links {
+        display: flex;
+        grid-area: links;
+        text-align: center;
+        margin: auto auto;
+        padding: 0;
+        width: 100%;
+
+        flex-wrap: wrap;
+        height: calc(100vh - 8em);
+
+        a {
+          padding: 0;
+          margin-right: 1em;
+        }
+      }
+    }
+
+    .play-button {
+      transform: none !important;
+    }
+  }
+}

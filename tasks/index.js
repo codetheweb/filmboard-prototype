@@ -5,6 +5,7 @@ const rm = require('gulp-rm');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const Browser = require('browser-sync');
+const nunjucksRender = require('gulp-nunjucks-render');
 
 const webpackConfig = require('./webpack').config;
 
@@ -54,15 +55,16 @@ function browserSyncReload(done) {
 
 // Sass
 gulp.task('sass', () => {
-  return gulp.src('./site/*.scss')
+  return gulp.src('./site/scss/**/*.scss')
     .pipe(sass({includePaths: ['node_modules']}).on('error', sass.logError))
     .pipe(browser.stream())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/css'));
 });
 
 // HTML
 gulp.task('html', () => {
-  return gulp.src('./site/*.html')
+  return gulp.src('./site/pages/**/*.+(html|nunjucks)')
+    .pipe(nunjucksRender({path: './site/pages/templates'}))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -74,8 +76,8 @@ gulp.task('assets', () => {
 
 // Watch, build, and reload on changes
 gulp.task('watch', () => {
-  gulp.watch('./site/*.scss', gulp.series('sass'));
-  gulp.watch('./site/*.html', gulp.series('html', browserSyncReload));
+  gulp.watch('./site/scss/**/*.scss', gulp.series('sass'));
+  gulp.watch('./site/pages/**/*.+(html|nunjucks)', gulp.series('html', browserSyncReload));
   gulp.watch('./site/assets/**/*', gulp.series('assets', browserSyncReload));
   gulp.watch('site/**/*.js', gulp.series(browserSyncReload));
 });
