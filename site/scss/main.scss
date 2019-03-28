@@ -84,6 +84,17 @@ nav {
     & > a {
       font-weight: 300;
       padding-left: 10px;
+      margin-left: -200px;
+      animation: slideIn;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    @for $i from 0 through 10 {
+      & > a:nth-child(#{$i + 1}) {
+        animation-delay: $i * 0.15s;
+      }
     }
   }
 }
@@ -240,5 +251,14 @@ footer {
     .play-button {
       transform: none !important;
     }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    margin-left: -200px;
+  }
+  100% {
+    margin-left: 0;
   }
 }
