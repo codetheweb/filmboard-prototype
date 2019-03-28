@@ -37,6 +37,7 @@ $(document).ready(() => {
     let player = YouTubePlayer('trailer');
 
     player.loadVideoById('xjDjIWPwcPU');
+    player.stopVideo();
 
     function stopAndHideVideo() {
       player.stopVideo().then(() => {
