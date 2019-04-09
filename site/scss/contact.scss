@@ -1,0 +1,91 @@
+@import 'mixins';
+@import 'variables';
+
+.content {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 4em;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  .input {
+    display: flex;
+    margin: 2em 0;
+
+    span:after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      height: 100vh;
+      width: 100vw;
+      transition: all 0.3s;
+    }
+  }
+
+  input:focus+span:after, textarea:focus+span:after {
+    z-index: 1000;
+    background: rgba($background-dark, 0.4);
+  }
+
+  .input:last-child {
+    justify-content: center;
+  }
+
+  input, textarea {
+    background: transparent;
+    border: 3px solid $background-dark;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 0.7em;
+    font-size: 130%;
+    transition: all 0.2s;
+    background-color: $background-light;
+
+    &:focus {
+      z-index: 2000;
+      border-color: $yellow;
+    }
+  }
+
+  input:not(:placeholder-shown):invalid {
+    border-color: red;
+    outline: none;
+    box-shadow: none;
+  }
+
+  input[type=submit] {
+    border: none;
+    border-bottom: 3px solid $yellow;
+    padding: 0;
+    width: auto;
+    cursor: pointer;
+  }
+
+  label {
+    margin-right: 1em;
+    font-weight: bold;
+    font-size: 130%;
+  }
+}
+
+.dark {
+  input, textarea {
+    color: white;
+    background-color: $background-dark;
+    border-color: $background-light;
+  }
+}

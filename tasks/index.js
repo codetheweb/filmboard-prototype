@@ -6,6 +6,8 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const Browser = require('browser-sync');
 const nunjucksRender = require('gulp-nunjucks-render');
+const data = require('gulp-data');
+const fs = require('fs');
 
 const webpackConfig = require('./webpack').config;
 
@@ -64,6 +66,9 @@ gulp.task('sass', () => {
 // HTML
 gulp.task('html', () => {
   return gulp.src('./site/pages/**/*.+(html|nunjucks)')
+    .pipe(data(function() {
+      return JSON.parse(fs.readFileSync('./site/data.json'));
+    }))
     .pipe(nunjucksRender({path: './site/pages/templates'}))
     .pipe(gulp.dest('./dist'));
 });
@@ -74,15 +79,22 @@ gulp.task('assets', () => {
     .pipe(gulp.dest('./dist/assets'));
 });
 
+// Favicons
+gulp.task('favicons', gulp.series('assets', () => {
+  return gulp.src('./dist/assets/favicons/**/*')
+    .pipe(gulp.dest('./dist'))
+}));
+
 // Watch, build, and reload on changes
 gulp.task('watch', () => {
   gulp.watch('./site/scss/**/*.scss', gulp.series('sass'));
   gulp.watch('./site/pages/**/*.+(html|nunjucks)', gulp.series('html', browserSyncReload));
+  gulp.watch('./site/data.json', gulp.series('html', browserSyncReload));
   gulp.watch('./site/assets/**/*', gulp.series('assets', browserSyncReload));
   gulp.watch('site/**/*.js', gulp.series(browserSyncReload));
 });
 
-const build = gulp.series('clean', gulp.parallel(scripts, 'sass', 'html', 'assets'));
+const build = gulp.series('clean', gulp.parallel(scripts, 'sass', 'html', 'assets', 'favicons'));
 
 const dev = gulp.series(build, browserSync, 'watch');
 

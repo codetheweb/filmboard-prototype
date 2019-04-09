@@ -1,0 +1,123 @@
+@import 'mixins';
+@import 'variables';
+
+body {
+  grid-template-areas: 'nav content';
+  grid-template-rows: 1fr;
+}
+
+#map {
+  width: calc(100vw - 20rem);
+  height: 100vh;
+  position: absolute;
+  left: 20rem;
+  top: 0;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+address {
+  position: absolute;
+}
+
+footer {
+  position: absolute;
+  bottom: 1em;
+  width: calc(100vw - 4em);
+  z-index: 500;
+
+  .credits {
+    display: none;
+  }
+}
+
+.marker {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Soin Sans Neue', sans-serif;
+}
+
+address {
+  grid-area: address;
+  text-align: center;
+  font-style: normal;
+  font-size: 120%;
+
+  border-bottom-left-radius: $border-radius-img;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: $background-light;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.1);
+
+  p {
+    margin: 0;
+    line-height: 1.5em;
+  }
+}
+
+.dark address {
+  background-color: $background-dark;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.4);
+}
+
+nav, .nav-open nav {
+  box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.1);
+}
+
+.dark {
+  nav, .nav-open nav {
+    box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.4);
+  }
+}
+
+@include for-mobile {
+  #map {
+    width: 100vw;
+    left: 0;
+  }
+
+  address {
+    margin-top: 8rem;
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 0;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@supports (-webkit-backdrop-filter: blur(10px)) {
+  #map {
+    width: 100vw;
+    left: 0;
+  }
+
+  nav, .nav-open nav, address {
+    background-color: rgba($background-light, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .dark {
+    nav, .nav-open nav, address {
+      background-color: rgba($background-dark, 0.6);
+    }
+  }
+}

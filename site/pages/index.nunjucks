@@ -7,48 +7,48 @@
 {% block content %}
   <div class="header-nowshowing">
     <h2>now showing</h2>
-    <h1>Black Panther</h1>
+    <h1>{{currentMovie.name}}</h1>
   </div>
 
   <div class="poster">
-    <img alt="Poster" src="assets/posters/black-panther.jpg" />
+    <img alt="Poster" src="assets/posters/{{currentMovie.posterIMG}}" />
 
     <div class="ratings">
       <div class="rating">
         <img src="assets/imgs/imbd.svg" />
-        <span class="value">7.4</span>
+        <span class="value">{{currentMovie.imbd}}</span>
       </div>
       <div class="rating">
         <img src="assets/imgs/rotten-tomatoes.svg" />
-        <span class="value">97</span>%
+        <span class="value">{{currentMovie.rottentomatoes}}</span>%
       </div>
       <div class="runtime">
-        <span class="hours">2</span>h
-        <span class="minutes">14</span>m
+        <span class="hours">{{currentMovie.runtimeHours}}</span>h
+        <span class="minutes">{{currentMovie.runtimeMinutes}}</span>m
       </div>
     </div>
 
     <div class="people">
       <div class="staring">
         <b>Staring</b>
-        <span>Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o</span>
+        <span>{{currentMovie.staring}}</span>
       </div>
       <div class="director">
         <b>Directed by</b>
-        <span>Ryan Coogler</span>
+        <span>{{currentMovie.directedBy}}</span>
       </div>
     </div>
   </div>
 
   <div class="description">
     <div class="trailer">
-      <img alt="Trailer" src="https://assets.rappler.com/16B82E9A098C40169F5A1508B509E89B/img/8011485D1F2B49599211960ED30626EB/June_10_2017-black-panther-001.jpg" />
+      <img alt="Trailer" src="assets/trailer-previews/{{currentMovie.trailerPreview}}" />
       <div class="play-button" alt="Play">
         <div class="triangle"></div>
       </div>
     </div>
     <div class="summery">
-      T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and confront a challenger from his country's past.
+      {{currentMovie.summery}}
     </div>
   </div>
 
@@ -56,52 +56,56 @@
     <table class="showtimes">
       <thead>
         <tr class="days">
-          <th>FRI</th>
-          <th>SAT</th>
-          <th>SUN</th>
+          {% for showing in currentMovie.showings %}
+            <th>{{showing.day}}</th>
+          {% endfor %}
         </tr>
         <tr class="dates">
-          <th>2/1</th>
-          <th>2/2</th>
-          <th>2/3</th>
+          {% for showing in currentMovie.showings %}
+            <th>{{showing.date}}</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td>2:30</td>
-          <td>2:30</td>
-        </tr>
-        <tr>
-          <td>5:30</td>
-          <td>5:30</td>
-          <td>5:30</td>
-        </tr>
-        <tr>
-          <td>8:30</td>
-          <td>8:30</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>11:30</td>
-          <td>11:30</td>
-          <td></td>
-        </tr>
+        {% for i in range(0, currentMovie.showings[1].times|length) %}
+          <tr>
+            {% for showing in currentMovie.showings %}
+              <td>
+                {{currentMovie.showings[loop.index0].times[i]}}
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
 
     <div class="prices">
       <p class="price">
-        <b>$3</b> per ticket
+        <b>${{prices.ticket}}</b> per ticket
       </p>
       <p class="price">
-        <b>$1</b> per concession
+        <b>${{prices.concession}}</b> per concession
       </p>
     </div>
   </div>
 
+  <div class="upcoming">
+    <h1>Upcoming Movies</h1>
+
+    <container class="outer">
+      <container class="inner">
+        {% for movie in upcomingMovies %}
+        <div class="movie">
+          <img alt="Poster" src="assets/posters/{{movie.posterIMG}}" />
+          <span class="title">{{movie.name}}</span>
+        </div>
+        {% endfor %}
+      </container>
+    </container>
+  </div>
+
   <!-- Normally hidden -->
   <div class="trailer-container">
-    <div id="trailer"></div>
+    <div data-youtubeID="{{currentMovie.youtubeID}}" id="trailer"></div>
   </div>
 {% endblock %}

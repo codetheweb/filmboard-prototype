@@ -8,7 +8,9 @@
   grid-row-gap: 1em;
   grid-template:
     'header header header'
-    'poster trailer showtimes';
+    'poster trailer showtimes'
+    'upcoming upcoming upcoming';
+  grid-template-rows: auto calc(100vh - 23rem) 1fr;
 }
 
 .content {
@@ -121,8 +123,6 @@
         align-items: center;
         cursor: pointer;
 
-        transform: translateZ(2em);
-
         .triangle {
           border-left: 2em solid $yellow;
           border-right: 1.33em solid transparent;
@@ -137,7 +137,7 @@
 
     .summery {
       margin-top: 1.5em;
-      font-size: 110%;
+      font-size: 120%;
       line-height: 1.3em;
     }
   }
@@ -146,7 +146,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-template: showtimes;
+    grid-area: showtimes;
 
     table {
       font-size: 150%;
@@ -180,6 +180,54 @@
       }
     }
   }
+
+  .upcoming {
+    grid-area: upcoming;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 250%;
+    }
+
+    container.outer {
+      display: flex;
+      overflow: scroll;
+      //box-shadow: inset 0px 0px 26px 0px rgba(0,0,0,0.2);
+      border-radius: $border-radius-img;
+    }
+
+    container.inner {
+      display: flex;
+      padding: 2em;
+      margin: auto 0;
+
+      .movie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 2.5em;
+
+        img {
+          width: auto;
+          height: 15em;
+          @include shadow;
+          border-radius: $border-radius-img;
+        }
+
+        span {
+          margin-top: 1em;
+          font-size: 150%;
+          text-align: center;
+          font-weight: 500;
+        }
+      }
+    }
+  }
 }
 
 .trailer-container {
@@ -202,35 +250,50 @@
   }
 }
 
-@media (max-width: 1100px) {
-  .content {
-    grid-template-areas:
+@media (max-width: 1300px) {
+  body {
+    .content {
+      grid-template-areas:
+      'header header'
+      'poster trailer'
+      'showtimes upcoming';
+      grid-row-gap: 4em;
+    }
+  }
+}
+
+@include for-mobile {
+  body {
+    .content {
+      grid-template-areas:
       'header'
       'poster'
       'trailer'
-      'showtimes';
-    margin-top: 3em;
-    grid-row-gap: 4em;
-    grid-template-columns: 70%;
-    justify-content: center;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+      'showtimes'
+      'upcoming';
+      //margin-top: 3em;
+      grid-row-gap: 4em;
+      grid-template-columns: 70%;
+      justify-content: center;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
 
-    .poster {
-      margin-top: -3em;
+      .poster {
+        margin-top: -3em;
 
-      & > img {
-        width: 80%;
+        & > img {
+          width: 80%;
+        }
+
+        .people {
+          display: none;
+        }
       }
 
-      .people {
-        display: none;
+      .header-nowshowing {
+        font-size: 0.8em;
       }
-    }
-
-    .header-nowshowing {
-      font-size: 0.8em;
     }
   }
 }

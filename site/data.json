@@ -1,0 +1,65 @@
+{
+  "prices": {
+    "ticket": 3,
+    "concession": 1
+  },
+  "upcomingMovies": [
+    {
+      "name": "The Lego Movie 2",
+      "posterIMG": "lego-movie-2.jpg"
+    },
+    {
+      "name": "Jumanji: Welcome to the Jungle",
+      "posterIMG": "jumanji.jpg"
+    },
+    {
+      "name": "Captain Marvel",
+      "posterIMG": "captain-marvel.jpg"
+    }
+  ],
+  "currentMovie": {
+    "name": "Black Panther",
+    "posterIMG": "black-panther.jpg",
+    "imbd": 7.4,
+    "rottentomatoes": 97,
+    "runtimeHours": 2,
+    "runtimeMinutes": 14,
+    "staring": "Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o",
+    "directedBy": "Ryan Coogler",
+    "summery": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and confront a challenger from his country's past.",
+    "trailerPreview": "black-panther.jpg",
+    "youtubeID": "xjDjIWPwcPU",
+    "showings": [
+      {
+        "day": "FRI",
+        "date": "2/1",
+        "times": [
+          "",
+          "5:30",
+          "8:30",
+          "11:30"
+        ]
+      },
+      {
+        "day": "SAT",
+        "date": "2/2",
+        "times": [
+          "2:30",
+          "5:30",
+          "8:30",
+          "11:30"
+        ]
+      },
+      {
+        "day": "SUN",
+        "date": "2/3",
+        "times": [
+          "2:30",
+          "5:30",
+          "",
+          ""
+        ]
+      }
+    ]
+  }
+}

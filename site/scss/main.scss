@@ -50,15 +50,16 @@ a {
                 $yellow 100%);
   background-position: 0 100%;
   background-repeat: repeat-x;
-  background-size: 0 0;
-  transition: background-size 0.2s;
+  background-size: 2px 2px;
+  transition: all 0.2s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   &.active {
     font-weight: bold !important;
   }
 
-  &:hover {
-    background-size: 4px 50px;
+  &:hover, &:active {
+    background-size: 0 0;
   }
 }
 
@@ -67,10 +68,17 @@ nav {
   display: flex;
   flex-direction: column;
   padding-top: 4em;
-  margin-left: 3em;
+  z-index: 100;
+  width: 100%;
+  height: calc(100vh - 4em);
+
+  & > * {
+    margin-left: 3rem;
+  }
 
   & > img { // Logo
-    padding-left: 10px;
+    width: 10em;
+    height: auto;
   }
 
   .navbar-links {
@@ -82,13 +90,25 @@ nav {
     line-height: 2em;
 
     & > a {
-      font-weight: 300;
-      padding-left: 10px;
-      margin-left: -200px;
       animation: slideIn;
       animation-duration: 1s;
       animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      font-weight: 300;
+
+      background-size: 0 0;
+      display: flex;
+      align-items: center;
+
+      transition: all;
+      transition-duration: 1s;
+
+      &:hover:before, &:hover:before {
+        content: '\f061';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: $yellow;
+        margin-right: 0.5em;
+      }
     }
 
     @for $i from 0 through 10 {
@@ -100,7 +120,7 @@ nav {
 }
 
 .content {
-  margin: 12em 5em auto 5em;
+  margin: 14em 5em auto 5em;
   justify-self: center;
   max-width: 1500px;
 }
@@ -137,7 +157,7 @@ footer {
   background-color: $background-dark;
 }
 
-@media (max-width: 1100px) {
+@include for-mobile {
   body {
     grid-template-areas:
       'nav'
@@ -147,15 +167,37 @@ footer {
     grid-template-columns: none;
   }
 
+  a:hover, a:active {
+    background-size: 0 0 !important;
+    color: $yellow !important;
+    font-weight: bold !important;
+  }
+
   nav {
     margin: 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 1em;
-    margin-top: 1em;
+    position: fixed;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    background-color: $background-light;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+    height: 8em;
+    transition-property: height;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 8em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'logo hamburger';
 
     .hamburger-menu {
+      grid-area: hamburger;
+      justify-self: flex-end;
       display: block;
       cursor: pointer;
       z-index: 12;
@@ -173,52 +215,39 @@ footer {
     }
 
     img {
-      height: 4em;
+      min-height: auto;
+      height: 6em;
       width: auto;
       margin: 0;
       padding: 0;
+      grid-area: logo;
     }
 
     .navbar-links {
       display: none;
+
+      & > a {
+        animation: none;
+      }
     }
   }
 
   .nav-open {
     nav {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
       height: 100vh;
       margin: 0;
       z-index: 11;
       background-color: $background-light;
-      padding: 0;
 
-      display: grid;
-      grid-template-rows: 6em 1fr;
-      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 8em 1fr;
       grid-template-areas:
         'logo hamburger'
         'links links';
-      justify-content: flex-start;
-
-      img {
-        position: absolute;
-        top: 1em;
-        left: 1em;
-        width: auto;
-        grid-area: logo;
-      }
 
       .hamburger-menu {
-        margin: auto 1em auto auto;
-        grid-area: hamburger;
-
         .line:nth-child(1) {
           transform: rotateZ(45deg);
-          margin-bottom: -0.2em;
+          margin-bottom: -0.1em;
         }
 
         .line:nth-child(2) {
@@ -227,6 +256,7 @@ footer {
 
         .line:nth-child(3) {
           transform: rotateZ(-45deg);
+          margin-top: -0.2em;
         }
       }
 
@@ -234,6 +264,7 @@ footer {
         display: flex;
         grid-area: links;
         text-align: center;
+        align-items: center;
         margin: auto auto;
         padding: 0;
         width: 100%;
@@ -244,12 +275,30 @@ footer {
         a {
           padding: 0;
           margin-right: 1em;
+
+          &:active:before, &:hover:before {
+            content: '';
+            margin: 0;
+          }
         }
       }
     }
+  }
 
-    .play-button {
-      transform: none !important;
+  .dark nav {
+    background-color: $background-dark;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.4);
+  }
+
+  // For Safari
+  @supports (-webkit-backdrop-filter: blur(10px)) {
+    nav, .nav-open nav {
+      background-color: rgba($background-light, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .dark nav, .dark.nav-open nav {
+      background-color: rgba($background-dark, 0.6);
     }
   }
 }

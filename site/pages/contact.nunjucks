@@ -1,0 +1,41 @@
+{% extends "layout.nunjucks" %}
+
+{% block style %}
+  <link rel="stylesheet" href="css/contact.css" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+  <h1>Talk to us!</h1>
+  <form>
+    <div class="input">
+      <input type="text" placeholder="Name" required />
+      <span></span>
+    </div>
+    <div class="input">
+      <input type="email" placeholder="Email" required />
+      <span></span>
+    </div>
+    <div class="input">
+      <label>Category</label>
+      <select>
+        <option>Advertising</option>
+        <option>Movie Suggestion</option>
+        <option>Website Feedback</option>
+        <option>Live Programming</option>
+        <option>3D Glasses</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="input">
+      <input type="text" placeholder="Subject" required />
+      <span></span>
+    </div>
+    <div class="input">
+      <textarea placeholder="Message" required></textarea>
+      <span></span>
+    </div>
+    <div class="input">
+      <input type="submit" value="Send" />
+    </div>
+  </form>
+{% endblock %}
