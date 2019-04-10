@@ -29,9 +29,11 @@
 
   	<nav>
       <img src="assets/logo.png" alt="Logo" />
-
       <div class="navbar-links">
-        <a href="/" class="active">Home</a>
+        {% for page in pages %}
+          <a href="{{page.url}}" class="{{ "active" if page.name == currentPage }}">{{page.name}}</a>
+        {% endfor %}
+        {# <a href="/" class="active">Home</a>
         <a href="/">Group Sales</a>
         <a href="/">About Us</a>
         <a href="/">Advertise</a>
@@ -39,7 +41,7 @@
         <a href="/">Services</a>
         <a href="/contact.html">Contact</a>
         <a href="/">Donate</a>
-        <a href="faq.html">FAQ</a>
+        <a href="faq.html">FAQ</a> #}
       </div>
 
       <div class="hamburger-menu">

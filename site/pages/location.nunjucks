@@ -1,3 +1,5 @@
+{% set currentPage = "Location" %}
+
 {% extends "layout.nunjucks" %}
 
 {% block style %}
@@ -16,7 +18,7 @@
     <p>
       1400 Townsend Drive
     </p>
-    <p>      
+    <p>
       Houghton, Michigan  49931-1295
     </p>
   </address>

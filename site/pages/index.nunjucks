@@ -1,3 +1,5 @@
+{% set currentPage = "Home" %}
+
 {% extends "layout.nunjucks" %}
 
 {% block style %}

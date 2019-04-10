@@ -1,3 +1,5 @@
+{% set currentPage = "Contact" %}
+
 {% extends "layout.nunjucks" %}
 
 {% block style %}

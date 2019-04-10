@@ -1,3 +1,5 @@
+{% set currentPage = "FAQ" %}
+
 {% extends "layout.nunjucks" %}
 
 {% block style %}
