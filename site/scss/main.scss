@@ -69,8 +69,9 @@ nav {
   flex-direction: column;
   padding-top: 4em;
   z-index: 100;
-  width: 100%;
+  width: 20rem;
   height: calc(100vh - 4em);
+  position: fixed;
 
   & > * {
     margin-left: 3rem;
@@ -123,6 +124,7 @@ nav {
   margin: 14em 5em auto 5em;
   justify-self: center;
   max-width: 1500px;
+  grid-area: content;
 }
 
 .hamburger-menu {
@@ -179,7 +181,6 @@ footer {
     align-items: center;
     justify-content: space-between;
     padding: 0 1em;
-    position: fixed;
     width: 100%;
     max-width: none;
     box-sizing: border-box;
