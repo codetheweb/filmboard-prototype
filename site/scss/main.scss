@@ -1,8 +1,16 @@
 // Styles common to all pages
+
+// Normalize
 @import 'sassy-normalize/normalize';
+
+// Helpers
 @import 'fonts';
 @import 'mixins';
 @import 'variables';
+
+// Components
+@import 'components/tables';
+@import 'components/text';
 
 html, body {
   padding: 0;
@@ -56,36 +64,6 @@ a {
 
   &:hover, &:active {
     background-size: 0 0;
-  }
-}
-
-p {
-  line-height: 1.3;
-}
-
-table {
-  border-collapse: collapse;
-
-  thead {
-    text-align: left;
-  }
-
-  th, td {
-    padding: 0.5em 1em;
-    font-size: 120%;
-  }
-
-  tr {
-    td:first-child {
-      border-radius: 4px 0 0 4px;
-    }
-    td:last-child {
-      border-radius: 0 4px 4px 0;
-    }
-  }
-
-  tbody tr:hover td {
-    background-color: rgba($yellow, 0.2);
   }
 }
 
