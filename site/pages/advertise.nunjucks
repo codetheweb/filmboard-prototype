@@ -1,0 +1,66 @@
+{% set currentPage = "Advertise" %}
+
+{% extends "layout.nunjucks" %}
+
+{% block style %}
+  <link rel="stylesheet" href="css/advertise.css" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+  <h1>Advertise With Us</h1>
+
+  <p>Advertising with Film Board is simple with just a few steps. Each weekend film board shows a slide show with advertisements as well as video advertisements from student organizations around campus and businesses all around. We sell advertisements on a slot basis for both slide and video advertisements. These slots are your “spot” in the slide show or video lineup. If you purchase a semester slot, you have the option to change out your slide or video each week, every couple of weeks, etc. While we offer semester pricing for each of the slots, we also offer pricing for slots that are only one time use. We do allow multiple slots to be purchased in slides, however not video. <u>All slots are first come first serve</u>.</p>
+  <p>For both slide and video slots, please provide information that answers the main questions of who, what, when, where, and how.</p>
+
+  <p>Slide Slots:</p>
+  <ul>
+    <li>
+      Slides and payment must be received by 5pm on Thursday before the weekend you wish it to be shown. Please send slides to <a href="mailto:fb-ads@mtu.edu">fb-ads@mtu.edu</a>
+    </li>
+    <li>
+      PowerPoint slides are displayed in a scope 2.39:1 ratio. High resolution images and high contrast text is highly recommended
+    </li>
+    <li>
+      A blank PowerPoint slide in the 2.39:1 ratio, with embedded fonts pre-enabled, is available <a href="http://filmboard.mtu.edu/wp-content/uploads/2048x858-blank.pptx">here for download</a>
+    </li>
+  </ul>
+
+  <p>Video Slots:</p>
+  <ul>
+    <li>
+      Advertising slots are played directly before trailers. Videos and payment must be received by 5pm on Wednesday before the weekend you wish it to be shown.
+    </li>
+    <li>
+      This is to account for additional processing time. Please send videos to <a href="mailto:fb-ads@mtu.edu">fb-ads@mtu.edu</a>
+    </li>
+    <li>
+      High resolution video is recommended so that when Film Board converts the video to DCP format, the video is of high quality.
+    </li>
+  </ul>
+
+  <h2>Pricing</h2>
+
+  <p>Slide slots:</p>
+  <ul>
+    <li>
+      $10 per slot per weekend
+    </li>
+    <li>
+      $75 per slot per semester
+    </li>
+  </ul>
+
+  <p>Video slot:</p>
+  <ul>
+    <li>
+      $10 per 15 seconds in length per weekend
+    </li>
+    <li>
+      $100 per 15 seconds in length per semester
+    </li>
+  </ul>
+
+  <p>Special advertising packages upon request.</p>
+  <p>Interested or have a question?</p>
+  <p>Please send an email to our advertising chair: <a href="mailto:fb-ads@mtu.edu">fb-ads@mtu.edu</a></p>
+{% endblock %}

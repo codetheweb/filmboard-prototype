@@ -1,12 +1,14 @@
 @import 'mixins';
 @import 'variables';
 
+@import 'components/forms';
+
 .content {
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40rem;
+  max-width: $comfortable-text-width;
   width: 100%;
   padding: 0 2em;
   box-sizing: border-box;
@@ -14,97 +16,13 @@
 
 h1 {
   font-size: 4em;
-  letter-spacing: 1px;
   text-align: center;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  .input {
-    display: flex;
-    margin: 2em 0;
-
-    span:after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      height: 100vh;
-      width: 100vw;
-      transition: all 0.3s;
-    }
-  }
-
-  input:focus+span:after, textarea:focus+span:after {
-    z-index: 1000;
-    background: rgba($background-dark, 0.4);
-  }
-
-  .input:last-child {
-    justify-content: center;
-  }
-
-  input, textarea {
-    background: transparent;
-    border: 3px solid $background-dark;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 0.7em;
-    width: 100%;
-    font-size: 130%;
-    transition: all 0.2s;
-    background-color: $background-light;
-
-    &:focus {
-      z-index: 2000;
-      border-color: $yellow;
-    }
-  }
-
-  input:not(:placeholder-shown):invalid {
-    border-color: red;
-    outline: none;
-    box-shadow: none;
-  }
-
-  input[type=submit] {
-    border: none;
-    border-bottom: 3px solid $yellow;
-    border-radius: 0;
-    padding: 0;
-    width: auto;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 2em;
-    letter-spacing: 2px;
-
-    &:hover, &:active {
-      color: $yellow;
-      border-color: black;
-    }
-  }
-
   label {
     margin-right: 1em;
     font-weight: bold;
     font-size: 130%;
-  }
-}
-
-.dark {
-  input, textarea {
-    color: white;
-    background-color: $background-dark;
-    border-color: $background-light;
-  }
-
-  input[type=submit] {
-    &:hover, &:active {
-      border-color: white;
-    }
   }
 }

@@ -1,11 +1,9 @@
+@import 'variables';
+
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 30em;
-
-  p {
-    font-size: 110%;
-  }
+  max-width: $comfortable-text-width;
 
   table {
     width: auto;

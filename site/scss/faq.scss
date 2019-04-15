@@ -12,13 +12,12 @@ h1 {
 
 
   .qa {
-    max-width: 30em;
-    line-height: 1.2em;
+    max-width: $comfortable-text-width;
     margin-right: 5em;
   }
 }
 
-@media (max-width: 1100px) {
+@include for-mobile {
   .qa {
     margin-right: 0 !important;
   }

@@ -1,8 +1,17 @@
 // Styles common to all pages
+
+// Normalize
 @import 'sassy-normalize/normalize';
+
+// Helpers
 @import 'fonts';
 @import 'mixins';
 @import 'variables';
+
+// Components
+@import 'components/tables';
+@import 'components/text';
+@import 'components/links';
 
 html, body {
   padding: 0;
@@ -29,64 +38,6 @@ body {
 .dark {
   background-color: $background-dark;
   color: white;
-
-  a {
-    color: white;
-    transition: all;
-    transition-duration: 0.2s;
-  }
-}
-
-a {
-  color: black;
-  text-decoration: none;
-
-  background: linear-gradient(
-                to bottom, $yellow 0%,
-                $yellow 100%);
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  transition: all 0.2s;
-  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-  &.active {
-    font-weight: bold !important;
-  }
-
-  &:hover, &:active {
-    background-size: 0 0;
-  }
-}
-
-p {
-  line-height: 1.3;
-}
-
-table {
-  border-collapse: collapse;
-
-  thead {
-    text-align: left;
-  }
-
-  th, td {
-    padding: 0.5em 1em;
-    font-size: 120%;
-  }
-
-  tr {
-    td:first-child {
-      border-radius: 4px 0 0 4px;
-    }
-    td:last-child {
-      border-radius: 0 4px 4px 0;
-    }
-  }
-
-  tbody tr:hover td {
-    background-color: rgba($yellow, 0.2);
-  }
 }
 
 nav {
