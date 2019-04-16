@@ -1,0 +1,55 @@
+@import 'mixins';
+@import 'variables';
+@import 'components/forms';
+
+h1 {
+  font-size: 3em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5em;
+
+    img {
+      @include shadow;
+      border-radius: $border-radius-img;
+      max-width: 80vw;
+      width: 15em;
+    }
+
+    .title {
+      font-weight: 500;
+      margin-top: 1em;
+      max-width: 10em;
+      text-align: center;
+      font-size: 1.3em;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $background-light;
+  padding: 0 2em;
+  color: black;
+  border-radius: $border-radius-img;
+  @include shadow;
+
+  .input {
+    margin-right: 1.5em;
+  }
+}

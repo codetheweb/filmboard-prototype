@@ -183,62 +183,6 @@
       }
     }
   }
-
-  .upcoming {
-    grid-area: upcoming;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    h1 {
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 250%;
-    }
-
-    container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      .movie {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 2.5em;
-
-        img {
-          width: auto;
-          width: calc((70vw - 20rem) / 3);
-          @include shadow;
-          border-radius: $border-radius-img;
-        }
-
-        span {
-          margin-top: 1em;
-          font-size: 150%;
-          text-align: center;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
-
-.floating-arrow {
-  position: absolute;
-  top: calc(100vh - 4rem - 1rem);
-  left: 50vw;
-  width: 4rem;
-  height: 4rem;
-  font-size: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: bob 1.5s infinite;
-  box-sizing: border-box;
-  color: rgba($yellow, 1);
 }
 
 .trailer-container {
@@ -267,7 +211,7 @@
       grid-template-areas:
       'header header'
       'poster trailer'
-      'showtimes upcoming';
+      'showtimes showtimes';
       grid-row-gap: 4em;
     }
   }
@@ -280,8 +224,7 @@
       'header'
       'poster'
       'trailer'
-      'showtimes'
-      'upcoming';
+      'showtimes';
       grid-row-gap: 4em;
       grid-template-columns: 70%;
       justify-content: center;
@@ -305,17 +248,5 @@
         font-size: 0.8em;
       }
     }
-  }
-}
-
-@keyframes bob {
-  0% {
-    padding-bottom: 0;
-  }
-  50% {
-    padding-bottom: 1rem;
-  }
-  100% {
-    padding-bottom: 0;
   }
 }

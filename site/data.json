@@ -5,6 +5,10 @@
       "url": "/"
     },
     {
+      "name": "Movies",
+      "url": "/movies.html"
+    },
+    {
       "name": "About Us",
       "url": "/"
     },
@@ -44,20 +48,62 @@
   "upcomingMovies": [
     {
       "name": "The Lego Movie 2",
-      "posterIMG": "lego-movie-2.jpg"
+      "poster": "lego-movie-2.jpg"
     },
     {
       "name": "Jumanji: Welcome to the Jungle",
-      "posterIMG": "jumanji.jpg"
+      "poster": "jumanji.jpg"
     },
     {
       "name": "Captain Marvel",
-      "posterIMG": "captain-marvel.jpg"
+      "poster": "captain-marvel.jpg"
+    }
+  ],
+  "archivedMovies": [
+    {
+      "name": "Spider-Man: Into the Spider-Verse",
+      "poster": "spiderman-spiderverse.jpg"
+    },
+    {
+      "name": "Bumblebee",
+      "poster": "bumblebee.jpg"
+    },
+    {
+      "name": "Avengers: Infinity War",
+      "poster": "avengers-infinity-war.jpg"
+    },
+    {
+      "name": "Interstellar",
+      "poster": "Interstellar.jpg"
+    },
+    {
+      "name": "Inception",
+      "poster": "inception.jpg"
+    },
+    {
+      "name": "Wreck-It Ralph",
+      "poster": "wreck-it-ralph.jpg"
+    },
+    {
+      "name": "Ant-Man and the Wasp",
+      "poster": "ant-man-wasp.jpg"
+    },
+    {
+      "name": "How to Train Your Dragon 2",
+      "poster": "how-to-train-your-dragon-2.jpg"
+    },
+    {
+      "name": "Back to the Future",
+      "poster": "back-to-the-future.jpg"
+    },
+    {
+      "name": "The Incredibles",
+      "poster": "the-incredibles.jpg"
     }
   ],
   "currentMovie": {
     "name": "Black Panther",
-    "posterIMG": "black-panther.jpg",
+    "poster": "black-panther.jpg",
     "imbd": 7.4,
     "rottentomatoes": 97,
     "runtimeHours": 2,

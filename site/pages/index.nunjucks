@@ -13,7 +13,7 @@
   </div>
 
   <div class="poster">
-    <img alt="Poster" src="assets/posters/{{currentMovie.posterIMG}}" />
+    <img alt="Poster" src="assets/posters/{{currentMovie.poster}}" />
 
     <div class="ratings">
       <div class="rating">
@@ -89,23 +89,6 @@
         <b>${{prices.concession}}</b> per concession
       </p>
     </div>
-  </div>
-
-  <div class="upcoming">
-    <h1>Upcoming Movies</h1>
-
-    <container>
-      {% for movie in upcomingMovies %}
-      <div class="movie">
-        <img alt="Poster" src="assets/posters/{{movie.posterIMG}}" />
-        <span class="title">{{movie.name}}</span>
-      </div>
-      {% endfor %}
-    </container>
-  </div>
-
-  <div class="floating-arrow">
-    <i class="fas fa-sort-down"></i>
   </div>
 
   <!-- Normally hidden -->

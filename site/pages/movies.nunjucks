@@ -1,0 +1,62 @@
+{% set currentPage = "Movies" %}
+
+{% extends "layout.nunjucks" %}
+
+{% block style %}
+  <link rel="stylesheet" href="css/movies.css" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+  <section class="upcoming">
+    <h1>Upcoming</h1>
+
+    <container class="movie-container">
+      {% for movie in upcomingMovies %}
+      <div class="movie">
+        <img alt="poster" src="assets/posters/{{movie.poster}}" />
+        <span class="title">{{movie.name}}</span>
+      </div>
+      {% endfor %}
+    </container>
+  </section>
+  <section class="archived">
+    <h1>Archived</h1>
+
+    <form class="filters">
+      <div class="input">
+        <label>Semester:</label>
+        <select>
+          <option>All Semesters</option>
+          <option>Spring 2019</option>
+          <option>Fall 2018</option>
+        </select>
+      </div>
+      <div class="input">
+        <label># to show: </label>
+        <select>
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+          <option>All</option>
+        </select>
+      </div>
+      <div class="input">
+        <i class="fas fa-search input-icon"></i>
+        <input type="text" placeholder="Search" />
+        <span></span>
+      </div>
+      <div class="input">
+        <input type="submit" value="filter" class="button"/>
+      </div>
+    </form>
+
+    <container class="movie-container">
+      {% for movie in archivedMovies %}
+      <div class="movie">
+        <img alt="poster" src="assets/posters/{{movie.poster}}" />
+        <span class="title">{{movie.name}}</span>
+      </div>
+      {% endfor %}
+    </container>
+  </section>
+{% endblock %}
