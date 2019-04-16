@@ -2,6 +2,10 @@
 
 {% extends "layout.nunjucks" %}
 
+{% block scripts %}
+  <script src="js/movies.js"></script>
+{% endblock %}
+
 {% block style %}
   <link rel="stylesheet" href="css/movies.css" type="text/css"/>
 {% endblock %}
@@ -46,7 +50,7 @@
         <span></span>
       </div>
       <div class="input">
-        <input type="submit" value="filter" class="button"/>
+        <input type="submit" value="" class="font-awesome-solid button"/>
       </div>
     </form>
 

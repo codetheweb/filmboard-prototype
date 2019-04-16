@@ -11,7 +11,7 @@
     Film Board offers discounts on ticket prices for group sales according to the following table:
   </p>
 
-  <table>
+  <table class="highlight">
     <thead>
       <tr>
         <th>Number of Tickets Purchased</th>
@@ -38,7 +38,7 @@
     </tbody>
   </table>
 
-  <p>Tickets can be purchased in bulk by filling out Film Board’s&nbsp;<a href="http://filmboard.mtu.edu/wp-content/uploads/Move-Passes-Contract-2019-1.pdf">Move Pass Purchasing Form</a>&nbsp;and emailing it to <a href="mailto:filmbrd@mtu.edu" target="_blank" rel="noopener noreferrer">filmbrd@mtu.edu</a>. Please address questions regarding bulk sales to the Film Board Treasurer (contact information on the <a href="http://filmboard.mtu.edu/contact-us/" target="_blank" rel="noopener noreferrer">Contact page</a>).</p>
+  <p>Tickets can be purchased in bulk by filling out Film Board's <a href="http://filmboard.mtu.edu/wp-content/uploads/Move-Passes-Contract-2019-1.pdf">Move Pass Purchasing Form</a> and emailing it to <a href="mailto:filmbrd@mtu.edu" target="_blank" rel="noopener noreferrer">filmbrd@mtu.edu</a>. Please address questions regarding bulk sales to the Film Board Treasurer (contact information on the <a href="http://filmboard.mtu.edu/contact-us/" target="_blank" rel="noopener noreferrer">Contact page</a>).</p>
 
   <p>If you are an RA bringing your hall, you can purchase tickets at the window for $2 each, or $3 each with a free bag of popcorn included.&nbsp; Contact Film Board for more information.</p>
 {% endblock %}
