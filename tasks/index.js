@@ -1,9 +1,6 @@
 const gulp = require('gulp');
-const webpack = require('webpack');
 const sass = require('gulp-sass');
 const rm = require('gulp-rm');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
 const Browser = require('browser-sync');
 const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
@@ -12,13 +9,12 @@ const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const htmlmin = require('gulp-htmlmin');
 const cleanCSS = require('gulp-clean-css');
-
-const webpackConfig = require('./webpack').config;
+const bro = require('gulp-bro');
+const minifyJS = require('gulp-minify');
 
 sass.compiler = require('node-sass');
 
 const browser = Browser.create();
-const bundler = webpack(webpackConfig);
 
 // Delete dist/ directory
 gulp.task('clean', () => {
@@ -26,27 +22,10 @@ gulp.task('clean', () => {
     .pipe(rm());
 });
 
-// Compile JS
-function scripts() {
-  return new Promise(resolve => webpack(webpackConfig, (err, stats) => {
-    if (err) {
-      console.log('Webpack', err);
-    }
-
-    console.log(stats.toString({}));
-
-    resolve();
-  }));
-}
-
 // Start dev server
 function browserSync(done) {
   const config = {
-    server: 'dist',
-    middleware: [
-      webpackDevMiddleware(bundler, { /* options */ }),
-      webpackHotMiddleware(bundler)
-    ]
+    server: 'dist'
   };
 
   browser.init(config);
@@ -58,6 +37,13 @@ function browserSyncReload(done) {
   browser.reload();
   done();
 }
+
+// Javascript
+gulp.task('js', () => {
+  return gulp.src('./site/js/**/*')
+    .pipe(bro())
+    .pipe(gulp.dest('./dist/js'));
+});
 
 // Sass
 gulp.task('sass', () => {
@@ -90,7 +76,7 @@ gulp.task('favicons', gulp.series('assets', () => {
     .pipe(gulp.dest('./dist'))
 }));
 
-// Minification
+/* Minification */
 
 // Minify images
 gulp.task('minify-images', () => {
@@ -113,8 +99,20 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('./dist'));
 });
 
+// Minify JS
+gulp.task('minify-js', () => {
+  return gulp.src('./dist/**/*.js')
+    .pipe(minifyJS({
+      ext: {
+        src: '-full.js',
+        min: '.js'
+      }
+    }))
+    .pipe(gulp.dest('./dist'));
+});
+
 // Aggreggate minification task
-gulp.task('minify-all', gulp.parallel('minify-images', 'minify-html', 'minify-css'));
+gulp.task('minify-all', gulp.parallel('minify-images', 'minify-html', 'minify-css', 'minify-js'));
 
 // Watch, build, and reload on changes
 gulp.task('watch', () => {
@@ -122,10 +120,10 @@ gulp.task('watch', () => {
   gulp.watch('./site/pages/**/*.+(html|nunjucks)', gulp.series('html', browserSyncReload));
   gulp.watch('./site/data.json', gulp.series('html', browserSyncReload));
   gulp.watch('./site/assets/**/*', gulp.series('assets', browserSyncReload));
-  gulp.watch('site/**/*.js', gulp.series(browserSyncReload));
+  gulp.watch('site/**/*.js', gulp.series('js', browserSyncReload));
 });
 
-const build = gulp.series('clean', gulp.parallel(scripts, 'sass', 'html', 'favicons', 'assets'));
+const build = gulp.series('clean', gulp.parallel('js', 'sass', 'html', 'favicons', 'assets'));
 
 const production = gulp.series(build, 'minify-all');
 

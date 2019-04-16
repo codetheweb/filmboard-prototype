@@ -11,13 +11,15 @@
   "author": "Max Isom <codetheweb@icloud.com> (https://maxisom.me)",
   "license": "MIT",
   "dependencies": {
-    "dotenv-webpack": "^1.7.0",
+    "gulp-bro": "^1.0.3",
     "gulp-clean-css": "^4.0.0",
     "gulp-data": "^1.3.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^5.0.3",
+    "gulp-minify": "^3.1.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-rm": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
     "imagemin-mozjpeg": "^8.0.0",
     "jquery": "^3.3.1",
     "mapbox-gl": "^0.53.1",
@@ -30,11 +32,6 @@
     "gulp": "gulpjs/gulp",
     "gulp-sass": "^4.0.2",
     "hard-source-webpack-plugin": "^0.13.1",
-    "node-sass": "^4.11.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-middleware": "^3.6.0",
-    "webpack-dev-server": "^3.2.1",
-    "webpack-hot-middleware": "^2.24.3"
+    "node-sass": "^4.11.0"
   }
 }

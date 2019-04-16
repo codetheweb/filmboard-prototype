@@ -2,43 +2,43 @@
   "pages" : [
     {
       "name": "Home",
-      "url": "/"
+      "url": "index.html"
     },
     {
       "name": "Movies",
-      "url": "/movies.html"
+      "url": "movies.html"
     },
     {
       "name": "About Us",
-      "url": "/"
+      "url": "index.html"
     },
     {
       "name": "Group Sales",
-      "url": "/groupsales.html"
+      "url": "groupsales.html"
     },
     {
       "name": "Advertise",
-      "url": "/advertise.html"
+      "url": "advertise.html"
     },
     {
       "name": "Location",
-      "url": "/location.html"
+      "url": "location.html"
     },
     {
       "name": "Services",
-      "url": "/"
+      "url": "index.html"
     },
     {
       "name": "Contact",
-      "url": "/contact.html"
+      "url": "contact.html"
     },
     {
       "name": "Donate",
-      "url": "/"
+      "url": "index.html"
     },
     {
       "name": "FAQ",
-      "url": "/faq.html"
+      "url": "faq.html"
     }
   ],
   "prices": {
@@ -74,7 +74,7 @@
     },
     {
       "name": "Interstellar",
-      "poster": "Interstellar.jpg"
+      "poster": "interstellar.jpg"
     },
     {
       "name": "Inception",
