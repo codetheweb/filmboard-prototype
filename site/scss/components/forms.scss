@@ -24,10 +24,9 @@ form {
     }
 
     .input-icon {
-      position: relative;
+      position: absolute;
       color: grey;
-      left: 2em;
-      top: 0;
+      left: 1em;
       font-size: 1.5em;
       z-index: 2001;
 
@@ -63,7 +62,7 @@ form {
 
     &:focus {
       z-index: 2000;
-      border-color: $yellow;
+      border-color: $yellow !important;
       outline: none;
     }
   }
@@ -99,14 +98,17 @@ form {
 }
 
 .button {
-  background-color: $yellow;
+  background-color: $background-dark;
+  color: $yellow;
   padding: 0.3em;
   border-radius: 4px;
   font-size: 2em;
+  border: none;
 
   &:hover, &:active {
-    @include shadow;
     cursor: pointer;
+    background-color: $yellow;
+    color: $background-dark;
   }
 }
 
@@ -120,6 +122,16 @@ form {
   input[type=submit] {
     &:hover, &:active {
       border-color: white;
+    }
+  }
+
+  .button {
+    background-color: $background-light;
+    color: $background-dark;
+
+    &:hover, &:active {
+      background-color: $background-dark;
+      color: $background-light;
     }
   }
 }
