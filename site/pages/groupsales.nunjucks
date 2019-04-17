@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+  <h1>Group Sales</h1>
+
   <p>
     Film Board offers discounts on ticket prices for group sales according to the following table:
   </p>
@@ -19,19 +21,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="animate-scale">
         <td>1 - 99</td>
         <td>$3.00</td>
       </tr>
-      <tr>
+      <tr class="animate-scale">
         <td>100 - 199</td>
         <td>$2.75</td>
       </tr>
-      <tr>
+      <tr class="animate-scale">
         <td>200 - 299</td>
         <td>$2.50</td>
       </tr>
-      <tr>
+      <tr class="animate-scale">
         <td>300+</td>
         <td>$2.25</td>
       </tr>

@@ -46,7 +46,7 @@ nav {
   flex-direction: column;
   padding-top: 4em;
   width: 20rem;
-  height: calc(100vh - 4em);
+  height: 100vh;
   position: fixed;
 
   & > * {
@@ -66,7 +66,7 @@ nav {
     font-size: 150%;
     line-height: 2em;
 
-    & > a {
+    a {
       animation: slideIn;
       animation-duration: 1s;
       animation-fill-mode: both;
@@ -89,7 +89,7 @@ nav {
     }
 
     @for $i from 0 through 10 {
-      & > a:nth-child(#{$i + 1}) {
+      & a:nth-child(#{$i + 1}) {
         animation-delay: $i * 0.15s;
       }
     }
@@ -136,6 +136,16 @@ footer {
   background-color: $background-dark;
 }
 
+@include for-tablet {
+  nav {
+    padding-top: 2em;
+
+    img {
+      width: 8em;
+    }
+  }
+}
+
 @include for-mobile {
   body {
     grid-template-areas:
@@ -144,6 +154,11 @@ footer {
       'footer';
     grid-template-rows: auto 1fr 3em;
     grid-template-columns: none;
+  }
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   a:hover, a:active {
@@ -172,6 +187,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'logo hamburger';
+    z-index: 3000;
 
     .hamburger-menu {
       grid-area: hamburger;
@@ -204,8 +220,9 @@ footer {
     .navbar-links {
       display: none;
 
-      & > a {
+      & a {
         animation: none;
+        display: block;
       }
     }
   }
@@ -214,7 +231,6 @@ footer {
     nav {
       height: 100vh;
       margin: 0;
-      z-index: 11;
       background-color: $background-light;
 
       grid-template-rows: 8em 1fr;
@@ -250,10 +266,11 @@ footer {
         flex-wrap: wrap;
         height: calc(100vh - 8em);
 
-        a {
-          padding: 0;
+        .flex-wrap-container {
           margin-right: 1em;
+        }
 
+        a {
           &:active:before, &:hover:before {
             content: '';
             margin: 0;
@@ -277,16 +294,6 @@ footer {
 
     .dark nav, .dark.nav-open nav {
       background-color: rgba($background-dark, 0.6);
-    }
-  }
-}
-
-@include for-tablet {
-  nav {
-    padding-top: 2em;
-
-    img {
-      width: 8em;
     }
   }
 }

@@ -245,6 +245,12 @@
       .header-nowshowing {
         font-size: 0.8em;
       }
+
+      .showings {
+        .showtimes, .prices {
+          font-size: 100%;
+        }
+      }
     }
   }
 }
