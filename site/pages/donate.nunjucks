@@ -1,0 +1,50 @@
+{% set currentPage = "Donate" %}
+
+{% extends "layout.nunjucks" %}
+
+{% block style %}
+  <link rel="stylesheet" href="css/donate.css" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+  <h1>Donate</h1>
+
+  <p>
+    Film Board receives limited annual funding through the Michigan Tech Student Activity Fee–usually on the order of $4,000 per year.
+    However, the Board’s typical operating expenses, including the costs for film rights and concessions restocking, are on the order of $35,000 per year.
+    Film Board accounts for the $31,000 discrepancy between expenses and funding from the University by charging $3 per ticket and $1 per concessions item, and ends up more or less even at
+    the end of each academic year, depending on the performance of the films shown.
+  </p>
+  <p>
+    Sometimes Film Board finds its equipment in need of upgrades, and the money the Board typically brings in is nowhere near the necessary amount for purchasing movie theatre equipment.
+    Therefore, Film Board accepts donations.
+  </p>
+  <p>
+    If you would like to donate to Film Board, you can use Michigan Tech’s <a href="http://www.mtu.edu/givenow/" target="_blank">“Make a Gift” page</a>.
+    To indicate that the donation is intended for Film Board, select “Other” under “Select Gift Designation(s)”, and add a note in the “Special Instructions” box for the University to direct the donation to Film Board.
+  </p>
+  <p>
+    We greatly appreciate any and all contributions.
+  </p>
+  <p>
+    <a href="http://filmboard.mtu.edu/wp-content/uploads/JustificationLetter.pdf" rel="">Speaker Upgrade Justification Letter</a><br>
+    <a href="http://filmboard.mtu.edu/wp-content/uploads/FilmBoardSBG.pdf" rel="">Special Budgetary Group Request Letter</a>
+  </p>
+
+  <hr>
+
+  <p>
+    Special thanks to the following donors:
+  </p>
+  <p>
+    Graduate Student Government<br>
+    Undergraduate Student Government<br>
+    Parents Fund<br>
+    Alumni Association<br>
+    Office of Institutional Equity and Inclusion<br>
+    Housing and Residential Life<br>
+    Career Services<br>
+    D&D Club
+  </p>
+
+{% endblock %}
