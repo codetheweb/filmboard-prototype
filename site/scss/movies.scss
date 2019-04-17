@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'variables';
 @import 'components/forms';
+@import 'components/animate';
 
 h1 {
   font-size: 3em;
@@ -30,11 +31,6 @@ section:not(:last-child) {
       border-radius: $border-radius-img;
       max-width: 80vw;
       width: 15em;
-      transition: all 0.2s;
-
-      &:hover {
-        transform: scale(1.05);
-      }
     }
 
     .title {
@@ -78,6 +74,20 @@ section:not(:last-child) {
     .input {
       input[type=text] {
         border-color: $background-light;
+      }
+    }
+  }
+}
+
+@include for-tablet {
+  .movie-container {
+    .movie {
+      img {
+        width: 10em;
+      }
+
+      .title {
+        max-width: 8em;
       }
     }
   }

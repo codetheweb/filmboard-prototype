@@ -17,7 +17,7 @@
     <container class="movie-container">
       {% for movie in upcomingMovies %}
       <div class="movie">
-        <img alt="poster" src="assets/posters/{{movie.poster}}" />
+        <img alt="poster" src="assets/posters/{{movie.poster}}" class="animate-scale"/>
         <span class="title">{{movie.name}}</span>
       </div>
       {% endfor %}

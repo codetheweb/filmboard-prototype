@@ -1,5 +1,6 @@
 @import 'mixins';
 @import 'variables';
+@import 'components/animate';
 
 .content {
   display: grid;
@@ -104,8 +105,6 @@
       justify-content: center;
       align-items: center;
 
-      transform-style: preserve-3d;
-
       & > img {
         width: 100%;
         height: auto;
@@ -204,7 +203,7 @@
   }
 }
 
-@media (max-width: 1300px) {
+@include for-tablet {
   body {
     .content {
       grid-template-areas:

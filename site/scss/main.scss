@@ -281,6 +281,16 @@ footer {
   }
 }
 
+@include for-tablet {
+  nav {
+    padding-top: 2em;
+
+    img {
+      width: 8em;
+    }
+  }
+}
+
 @keyframes slideIn {
   0% {
     margin-left: -200px;

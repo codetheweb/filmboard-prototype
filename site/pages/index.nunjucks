@@ -47,7 +47,7 @@
   </div>
 
   <div class="description">
-    <div class="trailer">
+    <div class="animate-scale trailer">
       <img alt="Trailer" src="assets/trailer-previews/{{currentMovie.trailerPreview}}" />
       <div class="play-button" alt="Play">
         <div class="triangle"></div>
