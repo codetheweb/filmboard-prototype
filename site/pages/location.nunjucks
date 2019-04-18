@@ -17,13 +17,16 @@
   </div>
   <address>
     <p>
+      135 Fisher Hall
+    </p>
+    <p>
       Michigan Technological University
     </p>
     <p>
       1400 Townsend Drive
     </p>
     <p>
-      Houghton, Michigan  49931-1295
+      Houghton, Michigan 49931-1295
     </p>
   </address>
 {% endblock %}
