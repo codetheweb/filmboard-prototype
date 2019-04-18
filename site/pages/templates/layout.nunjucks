@@ -33,11 +33,6 @@
   	<nav>
       <img src="assets/logo.png" alt="Logo" />
       <div class="navbar-links">
-        {# {% for page in pages %}
-          <a href="{{page.url}}" class="{{ "active" if page.name == currentPage }}">{{page.name}}</a>
-        {% endfor %} #}
-
-
         {% for i in range(0, 2) %}
           <div class="flex-wrap-container">
             {% for i in range(i * (pages.length / 2), (i + 1) * (pages.length / 2)) %}
@@ -64,5 +59,6 @@
         Site made by <a href="https://maxisom.me">Max Isom</a>.
       </div>
     </footer>
+    <script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
   </body>
 </html>

@@ -7,10 +7,14 @@ const data = require('gulp-data');
 const fs = require('fs');
 const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
+const flatMap = require('flat-map').default;
+const scaleImages = require('gulp-scale-images');
 const htmlmin = require('gulp-htmlmin');
 const cleanCSS = require('gulp-clean-css');
 const bro = require('gulp-bro');
 const minifyJS = require('gulp-minify');
+
+const path = require('path');
 
 sass.compiler = require('node-sass');
 
@@ -79,9 +83,24 @@ gulp.task('favicons', gulp.series('assets', () => {
 /* Minification */
 
 // Minify images
+const downsizeImg = (file, cb) => {
+  file.scale = {maxWidth: 1000};
+
+  cb(null, file);
+}
+const getFileName = (output, scale, cb) => {
+  const fileName = [
+    path.basename(output.path, output.extname),
+    output.extname
+  ].join('');
+
+  cb(null, fileName);
+}
 gulp.task('minify-images', () => {
-  return gulp.src('./dist/assets/**/*')
-  .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo(), imageminMozjpeg()]))
+  return gulp.src('./dist/assets/**/*.+(png|jpg|jpeg|gif|)')
+  .pipe(flatMap(downsizeImg))
+  .pipe(scaleImages(getFileName))
+  .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo(), imageminMozjpeg({quality: 80})]))
   .pipe(gulp.dest('./dist/assets'));
 });
 
